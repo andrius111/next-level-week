@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import knex from '../database/connection'
 
+
 class PointsController {
   async index(request: Request, response: Response) {
     const { city, state, items } = request.query
