@@ -128,9 +128,12 @@ const CreatePoint = () => {
       data.append('image', selectedFile)
     }
 
-    await api.post('points', data)
-
-    swal.fire('Pronto', 'Ponto de Coleta Cadastrado com Sucesso', 'success').then(() => history.push('/'))
+    try {
+      await api.post('points', data)
+      swal.fire('Pronto', 'Ponto de Coleta Cadastrado com Sucesso', 'success').then(() => history.push('/'))
+    } catch(error) {
+      swal.fire('Ops...', 'Preencha todos os campos', 'error')
+    }
   }
 
   return (
@@ -159,6 +162,7 @@ const CreatePoint = () => {
               type="text"
               name="name"
               id="name"
+              required={ true }
               onChange={ hadnleInputChange }
             />
           </div>
@@ -171,6 +175,7 @@ const CreatePoint = () => {
                 type="email"
                 name="email"
                 id="email"
+                required={ true }
                 onChange={ hadnleInputChange }
               />
             </div>
@@ -182,6 +187,7 @@ const CreatePoint = () => {
                 type="text"
                 name="whatsapp"
                 id="whatsapp"
+                required={ true }
                 onChange={ hadnleInputChange }
               />
             </div>
@@ -207,7 +213,13 @@ const CreatePoint = () => {
             <div className="field">
               <label htmlFor="state">Estado</label>
 
-              <select name="state" id="state" value={ selectedUf } onChange={ handleSelectUf }>
+              <select 
+                name="state" 
+                id="state" 
+                value={ selectedUf } 
+                required={ true }
+                onChange={ handleSelectUf }
+              >
                 <option value="0">Selecione um Estado</option>
                 {
                   ufs.map(uf => (
@@ -220,7 +232,13 @@ const CreatePoint = () => {
             <div className="field">
               <label htmlFor="city">Cidade</label>
 
-              <select name="city" id="city" value={ selectedCity } onChange={ handleSelectCity }>
+              <select 
+                name="city" 
+                id="city" 
+                value={ selectedCity } 
+                required={ true }
+                onChange={ handleSelectCity }
+              >
                 <option value="0">Selecione uma Cidade</option>
                 {
                   cities.map(city => (
