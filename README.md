@@ -17,11 +17,11 @@ This project was developed during the Next Level Week course by [Rocketseat](htt
 ## 🛠 Technologies
 This project was developed with the following technologies:
 
-- [node.js][nodejs]
-- [typescript][typescript]
-- [react][reactjs]
-- [react-native][rn]
-- [expo][expo]
+- [node.js](https://github.com/nodejs/node)
+- [typescript](https://github.com/microsoft/TypeScript)
+- [react](https://github.com/facebook/react)
+- [react-native](https://github.com/facebook/react-native)
+- [expo](https://github.com/expo/expo)
 
 ## 👤 Author
 
